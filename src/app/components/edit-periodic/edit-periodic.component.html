@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>{{ systemMessages.EditPeriodic }}</h2>
+<mat-dialog-content [formGroup]="form">
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>{{ systemMessages.Name }}</mat-label>
+    <input matInput formControlName="name" />
+    <mat-error *ngIf="form.get('name')?.hasError('required')">{{ systemMessages.Required }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>{{ systemMessages.Weight }}</mat-label>
+    <input matInput formControlName="weight" type="number" />
+    <mat-error *ngIf="form.get('weight')?.hasError('required')">{{ systemMessages.Required }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" style="width: 100%;">
+    <mat-label>{{ systemMessages.Symbol }}</mat-label>
+    <input matInput formControlName="symbol" />
+    <mat-error *ngIf="form.get('symbol')?.hasError('required')">{{ systemMessages.Required }}</mat-error>
+  </mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button (click)="cancel()">{{ systemMessages.Cancel }}</button>
+  <button mat-flat-button color="primary" (click)="save()" [disabled]="form.invalid">{{ systemMessages.Save }}</button>
+</mat-dialog-actions>
